@@ -1,0 +1,13 @@
+build
+build/**
+target
+target/**
+.gradle/
+.idea/
+*.iml
+*.bak
+logs
+logs/**
+out
+out/**
+test
