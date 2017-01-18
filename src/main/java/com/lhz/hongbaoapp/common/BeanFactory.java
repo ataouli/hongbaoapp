@@ -1,5 +1,6 @@
 package com.lhz.hongbaoapp.common;
 
+import com.easemob.server.example.api.ChatRoomAPI;
 import com.easemob.server.example.api.FileAPI;
 import com.easemob.server.example.api.IMUserAPI;
 import com.easemob.server.example.api.SendMessageAPI;
@@ -37,5 +38,11 @@ public class BeanFactory {
     public FileAPI fileAPI(){
         FileAPI fileAPI= (FileAPI) factory.newInstance(EasemobRestAPIFactory.FILE_CLASS);
         return fileAPI;
+    }
+
+    @Bean
+    public ChatRoomAPI chatRoomAPI(){
+        ChatRoomAPI chatRoomAPI= (ChatRoomAPI) factory.newInstance(EasemobRestAPIFactory.CHATROOM_CLASS);
+        return chatRoomAPI;
     }
 }

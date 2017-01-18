@@ -12,4 +12,10 @@ public interface UserService {
     User selectUserByUsername(String username);
     //注册
     boolean register(User user);
+    //修改密码
+    boolean changePassword(String username,String newpassword);
+    //修改手机号
+    boolean changePhone(String username,String phone);
+    //修改用户昵称
+    boolean changeNicename(String username,String nicename);
 }

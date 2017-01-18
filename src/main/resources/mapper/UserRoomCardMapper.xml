@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lhz.hongbaoapp.mapper.UserRoomCardMapper">
+    <resultMap type="UserRoomCard" id="userRoomCard">
+        <id column="id" property="id" />
+        <result  property="userId" column="user_id" />
+        <result  property="roomCardId" column="room_card_id" />
+    </resultMap>
+
+    <insert id="save" parameterType="userRoomCard">
+        INSERT INTO user_room_card (userId,roomCardId) VALUES (#{userId},#{roomCardId})
+    </insert>
+    <select id="seletctByUserId" resultType="userRoomCard">
+        SELECT * FROM user_room_card where user_id = #{userId}
+    </select>
+    <select id="seletctByUserId" resultType="userRoomCard">
+        SELECT * FROM user_room_card where user_id = #{userId}
+    </select>
+    <update id="deleteByUserIdAndId">
+        DELETE user_room_card WHERE user_id = #{userId} AND id= #{id}
+    </update>
+</mapper>

@@ -1,21 +1,22 @@
 package com.lhz.hongbaoapp.security;
 
+import com.lhz.hongbaoapp.entity.Role;
 import com.lhz.hongbaoapp.entity.User;
 import com.lhz.hongbaoapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by lhz on 16-9-5.
@@ -45,8 +46,8 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         if (!passwordEncoder.matches(password,user.getPassword())) {
             throw new BadCredentialsException("Wrong password.");
         }
-
-        Collection<? extends GrantedAuthority> authorities = user.getAuthorities();
+        List<Role> roles=new ArrayList<>();
+        Collection<? extends GrantedAuthority> authorities = roles;
         session.setAttribute("username",username);//存取user信息
         return new UsernamePasswordAuthenticationToken(user, password, authorities);
     }
